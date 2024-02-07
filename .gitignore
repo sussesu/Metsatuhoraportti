@@ -1,0 +1,7 @@
+data/
+outputs/
+
+*.pdf
+*.png
+.Rproj.user
+*.Rproj
