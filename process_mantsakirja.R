@@ -9,6 +9,10 @@ data_dir <- "./data/MK/"
 fls <- list.files(data_dir, pattern="*.gpkg$")
 flnameOut <- "./data/stormdamage/harvests_mantsakirja.gpkg"
 
+##########################################################################'
+## RUN THINGS 
+##########################################################################'
+
 ## Remove output-files if they already exist (otherwise updated data will just append to the old file)
 if(file.exists(flnameOut)) {
   file.remove(flnameOut)
@@ -35,7 +39,9 @@ for(i in 1:length(fls)) {
 }
 
 
-# check file
+##########################################################################'
+## CHECK OUTPUTS
+##########################################################################'
 
 ccuts <- st_read(flnameOut)
 dim(ccuts)
@@ -51,3 +57,5 @@ ggplot(suomi) + geom_sf() +
           size=0.01) +
   theme_minimal()
 dev.off()
+
+sum(ccuts$area)/1e6
