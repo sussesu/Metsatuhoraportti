@@ -16,6 +16,8 @@ luke_colors <- grDevices::rgb(red=c(255,84,0,0,225,120,127),
                               names=c('orange','darkgray','turqoise','darkblue','fuchsia','green','violet'),
                               maxColorValue=255)
 
+setwd("/scratch/project_2008416/Metsatuhoraportti")
+
 target_year <- 2023
 min_year <- 2012
 
@@ -106,6 +108,13 @@ mk_plot <- ggplot(storm_centroids, aes(date)) +
 mk_plot
 ggsave("./outputs/storm_timeline.png", width=16, height = 7, unit = "cm")
 
+
+## Write as csv for Metsalehti ----
+
+storm_centroids_table <- storm_centroids %>%
+  st_drop_geometry()
+
+write_csv(storm_centroids_table, file="./data/stormdamage/stormCentroids_finland_2024.csv")
 
 ## Only 2023 ----
 
