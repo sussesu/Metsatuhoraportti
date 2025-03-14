@@ -6,3 +6,4 @@ outputs/
 .Rproj.user
 .Rhistory
 *.Rproj
+.Rprofile
